@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie Add Cast</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body>
+  <div class="container mt-5">  
+    <div class="row">
+      <h1 class="col jumbotron mr-3"><%= movies.name %></h1>
+      <form class="col" action=<%= `/movies/casts/add/${movies.id}` %> method="POST">
+        <h2>Add Cast:</h2>
+        <div class="form-group">
+          <label for="CastId">Actor:</label>
+          <select class="form-control" id="CastId" name="CastId">
+            <% casts.forEach(cast => { %>
+              <option value="<%= cast.id %>"><%= cast.fullname() %></option>
+            <% }) %>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="role">Role:</label>
+          <input type="text" class="form-control" id="role" name="role" placeholder="eg: Pemeran Utama Wanita">
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+        <a class="btn btn-danger" href="/movies">Cancel</a>
+      </form>
+    </div>
+  
+    <h1>List Cast</h1>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th>Actor</th>
+          <th>Role</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%movies.Casts.forEach((cast, index) => { %>
+          <tr>
+            <td><%- cast.fullname() %></td>
+            <td><%= cast.MovieCast.role %></td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  
+  </div>
+  
+
+</body>
+</html>

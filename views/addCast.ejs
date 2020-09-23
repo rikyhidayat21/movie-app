@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie App | Add Casts</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+    <h1 style="text-align: center;"><b>Add casts</b></h1>
+    <h3 style="text-align: center;"> <a href="/casts">show all data</a> </h3>
+
+    <form action="/casts/add" method="POST">
+        <p>First Name</p>
+        <input type="text" name= "first_name"> <br>
+        <p>Last Name</p>
+        <input type="text" name= "last_name"> <br>
+        <p>Birth Year</p>
+        <input type="number" name= "birth_year"> <br>
+        <p>Phone Number</p>
+        <input type="text" name= "phone_number"> <br>
+        
+        <label for="">Gender:</label><br>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label><br>
+        
+        <input type="submit" value="Save">
+    </form>
+</body>
+</html> 
+</html>

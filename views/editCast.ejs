@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie App | Edit Cast</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+<body>
+  <h1>Edit Cast</h1>
+  <form action="/casts/edit/<%= casts.id%>" method="POST">
+    <label for="">First Name</label><br>
+    <input type="text" name="first_name" value="<%= casts.first_name%>"><br>
+
+    <label for="">Last Name</label><br>
+    <input type="text" name="last_name" value="<%= casts.last_name%>"><br>
+
+    <label for="">Birth Year</label><br>
+    <input type="text" name="birth_year" value="<%= casts.birth_year%>"><br>
+
+    <label for="">Phone Number</label><br>
+    <input type="text" name="phone_number" value="<%= casts.phone_number%>"><br>
+
+    <label for="">Gender:</label><br>
+    <label for="">Male</label><br>
+    <input type="radio" name="gender" value="male" <%= (casts.gender === 'male') ? 'checked' : '' %>> <br>
+
+    <label for="">Female</label><br>
+    <input type="radio" name="gender" value="female" <%= (casts.gender === 'female') ? 'checked' : '' %>> <br> 
+
+    <button type="submit">Update</button>
+    <a href="/casts"><button>Cancel</button></a>
+  </form>
+</body>
+</html>

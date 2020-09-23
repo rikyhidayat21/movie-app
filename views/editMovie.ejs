@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    
+</head>
+<body>
+    <form action="/movies/edit/<%=movies.id%>" method="post">
+        <label for="name">Name</label> <br>
+        <input type="text" name="name" value="<%=movies.name%>"> <br>
+
+        <label for="Released Year">Released Year</label> <br>
+        <input type="text" name="released_year" value="<%=movies.released_year%>"> <br>
+
+        <label for="genre">Genre</label><br>
+        <select name="genre" id="">
+            <%if(movies.genre == 'animasi') { %>
+                <option value=""></option>
+                <option value="animasi" selected>animation</option>
+                <option value="comedy" >comedy</option>
+                <option value="drama" >drama</option>
+                <option value="horror" >horror</option>
+                <option value="religi" >religious</option>
+                <option value="thriller" >thriller</option>
+            <%} else if(movies.genre == 'comedy') { %>
+                <option value=""></option>
+                <option value="animasi" >animation</option>
+                <option value="comedy" selected>comedy</option>
+                <option value="drama" >drama</option>
+                <option value="horror" >horror</option>
+                <option value="religi" >religious</option>
+                <option value="thriller" >thriller</option>
+            <%} else if(movies.genre == 'drama') { %>
+                <option value=""></option>
+                <option value="animasi" >animation</option>
+                <option value="comedy" >comedy</option>
+                <option value="drama" selected>drama</option>
+                <option value="horror" >horror</option>
+                <option value="religi" >religious</option>
+                <option value="thriller" >thriller</option>
+            <%} else if(movies.genre == 'horror') { %>
+                <option value=""></option>
+                <option value="animasi">animation</option>
+                <option value="comedy">comedy</option>
+                <option value="drama">drama</option>
+                <option value="horror"selected>horror</option>
+                <option value="religi" >religious</option>
+                <option value="thriller" >thriller</option>
+            <%} else if(movies.genre == 'religi') { %>
+                <option value=""></option>
+                <option value="animasi">animation</option>
+                <option value="comedy">comedy</option>
+                <option value="drama">drama</option>
+                <option value="horror">horror</option>
+                <option value="religi" selected>religious</option>
+                <option value="thriller" >thriller</option>
+            <%} else if(movies.genre == 'thriller') { %>
+                <option value=""></option>
+                <option value="animasi">animation</option>
+                <option value="comedy">comedy</option>
+                <option value="drama">drama</option>
+                <option value="horror">horror</option>
+                <option value="religi">religious</option>
+                <option value="thriller"selected>thriller</option>
+            <%}%>
+        </select>
+        <br>
+        <label for="Production House">Production House</label> <br>
+        <select name="ProductionHouseId" id="">                       
+            <option value="">--Please Select--</option>
+            <% productionData.forEach(el => { %>
+                <% if(movies.ProdHouseId === el.id) { %>                    
+                    '<option value="<%=el.id%>" selected><%=el.name_prodHouse%></option>'
+                <% } else { %>
+                    '<option value="<%=el.id%>"><%=el.name_prodHouse%></option>'
+                <% } %>
+            <% }) %>
+        </select>
+
+        <br>
+        <br>
+
+        <button type="submit"value="Edit" class="btn btn-primary"> Edit</button>
+        <a href="/movies"><button class="btn btn-danger"> Cancel</button> </a>
+
+    </form>
+
+</body>
+</html> 
